@@ -23,7 +23,7 @@ const variants = {
 
 export default function LocationCard({ location }: { location: LocationData }) {
 	const [_, setSelectedLocation] = useStore.selectedLocation();
-	let variant: Variants = 'cloudy';
+	let variant: Variants = 'sunny';
 	if (location.weather[0].main.toLocaleLowerCase().includes('rain')) variant = 'rainy';
 	if (location.weather[0].main.toLocaleLowerCase().includes('sun')) variant = 'sunny';
 	if (location.weather[0].main.toLocaleLowerCase().includes('cloud')) variant = 'cloudy';
