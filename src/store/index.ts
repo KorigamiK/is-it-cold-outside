@@ -1,14 +1,14 @@
 import createStore from "teaful";
-import { Coord, LocationData } from "../../lib/types";
+import { Coord, ForecastData } from "../../lib/types";
 
 export interface IStore {
-  locations: LocationData[];
-  selectedLocation: Coord | null;
+	locations: ForecastData[];
+	selectedLocation: Coord | null;
 }
 
 const initialStore: IStore = {
-  locations: [],
-  selectedLocation: null,
+	locations: [],
+	selectedLocation: null,
 };
 
 export const { useStore, getStore } = createStore(initialStore);

@@ -36,11 +36,11 @@ const Search = (_props: {}) => {
 							className="block bg-white shadow-md p-1 my-1 hover:shadow-lg hover:bg-gray-100 rounded-lg cursor-pointer transition duration-300 ease-in-out"
 							onClick={async () => {
 								console.log('hi')
-								const data = await openWeatherMap.getWeatherByCoordinates(item.lat, item.lon);
+								const data = await openWeatherMap.getForecastByCoordinates(item.lat, item.lon);
 								setLocations([...locations, data]);
 								setSearch("");
 								setShowResults(false);
-								setSelectedLocation(data.coord);
+								setSelectedLocation(data.city.coord);
 							}}
 							href="#weather-data"
 						>

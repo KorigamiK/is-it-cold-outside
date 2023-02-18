@@ -1,7 +1,7 @@
 import "./LocationCard.css";
 import { BsSun, BsCloudy } from "react-icons/bs";
 import { IoRainyOutline } from "react-icons/io5";
-import { LocationData } from "../../lib/types";
+import { ForecastData } from "../../lib/types";
 import { useStore } from "../store";
 
 type Variants = "sunny" | "rainy" | "cloudy";
@@ -21,24 +21,24 @@ const variants = {
 	},
 };
 
-export default function LocationCard({ location }: { location: LocationData }) {
+export default function LocationCard({ location }: { location: ForecastData }) {
 	const [_, setSelectedLocation] = useStore.selectedLocation();
 	let variant: Variants = 'sunny';
-	if (location.weather[0].main.toLocaleLowerCase().includes('rain')) variant = 'rainy';
-	if (location.weather[0].main.toLocaleLowerCase().includes('sun')) variant = 'sunny';
-	if (location.weather[0].main.toLocaleLowerCase().includes('cloud')) variant = 'cloudy';
+	if (location.list[0].weather[0].main.toLocaleLowerCase().includes('rain')) variant = 'rainy';
+	if (location.list[0].weather[0].main.toLocaleLowerCase().includes('sun')) variant = 'sunny';
+	if (location.list[0].weather[0].main.toLocaleLowerCase().includes('cloud')) variant = 'cloudy';
 
 	return (
 		<div
-			class={`w-1/2 mx-auto rounded-lg shadow-lg flex justify-between p-5 items-center ${ variants[variant].background } cursor-pointer transition duration-300 ease-in-out hover:shadow-xl hover:scale-105`}
+			class={`w-1/2 mx-auto rounded-lg shadow-lg flex justify-between p-5 items-center ${variants[variant].background} cursor-pointer transition duration-300 ease-in-out hover:shadow-xl hover:scale-105`}
 			onClick={() => {
 				console.log(location)
-				setSelectedLocation(location.coord);
+				setSelectedLocation(location.city.coord);
 			}}
 		>
 			<div className="text-left">
-				<h2 className="font-normal text-4xl">{location.main.temp}°C</h2>
-				<h4 className="text-gray-500">{location.name}</h4>
+				<h2 className="font-normal text-4xl">{location.list[0].main.temp}°C</h2>
+				<h4 className="text-gray-500">{location.city.name}</h4>
 			</div>
 			{variants[variant].icon()}
 		</div>

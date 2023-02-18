@@ -5,7 +5,7 @@ import Search from "./Search";
 export type SearchProps = {
 }
 
-const WeatherSearch = (props: SearchProps) => {
+const WeatherSearch = (_props: SearchProps) => {
 	const [locations] = useStore.locations();
 	return (
 		<div class="w-full sm:w-1/2 bg-primary text-black space-y-5 py-8" id='weather-search'>
