@@ -20,7 +20,7 @@ jobs:
           node-version: 16
 
       - name: Build project
-        run: npm i && npm run build
+        run: npm install && npm run build
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
