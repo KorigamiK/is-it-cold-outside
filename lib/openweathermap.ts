@@ -1,11 +1,11 @@
-import type { GeocodingResponse } from "./types";
+import type { GeocodingResponse, LocationData } from "./types";
 
 class OpenWeatherMap {
   private static _instance: OpenWeatherMap;
 
   private apiKey: string;
   private weatherAPIUrl = "https://api.openweathermap.org/data/2.5/weather?";
-  private geocodingAPIUrl = "http://api.openweathermap.org/geo/1.0/direct?";
+  private geocodingAPIUrl = "https://api.openweathermap.org/geo/1.0/direct?";
 
   constructor(apiKey: string) {
     console.log("OpenWeatherMap constructor");
@@ -29,7 +29,10 @@ class OpenWeatherMap {
     return await response.json();
   }
 
-  public async getWeatherByCoordinates(lat: number, lon: number) {
+  public async getWeatherByCoordinates(
+    lat: number,
+    lon: number
+  ): Promise<LocationData> {
     const url =
       this.weatherAPIUrl +
       new URLSearchParams({
