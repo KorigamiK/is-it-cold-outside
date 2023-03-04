@@ -30,7 +30,7 @@ export default function LocationCard({ location }: { location: ForecastData }) {
 
 	return (
 		<div
-			class={`w-1/2 mx-auto rounded-lg shadow-lg flex justify-between p-5 items-center ${variants[variant].background} cursor-pointer transition duration-300 ease-in-out hover:shadow-xl hover:scale-105`}
+			class={`w-3/4 md:w-1/2 mx-auto rounded-lg shadow-lg flex justify-between p-5 items-center ${ variants[variant].background } cursor-pointer transition duration-300 ease-in-out hover:shadow-xl hover:scale-105`}
 			onClick={() => {
 				console.log(location)
 				setSelectedLocation(location.city.coord);

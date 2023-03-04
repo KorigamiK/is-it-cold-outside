@@ -10,11 +10,9 @@ const WeatherSearch = (_props: SearchProps) => {
 	return (
 		<div class="w-full sm:w-1/2 bg-primary text-black space-y-5 py-8" id='weather-search'>
 			<Search />
-			{
-				locations.map((location) => (
-					<LocationCard location={location} />
-				))
-			}
+			{locations.map((location) => (
+				<LocationCard key={location.cod} location={location} />
+			))}
 		</div>
 	)
 }

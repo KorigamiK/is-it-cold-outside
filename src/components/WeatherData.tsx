@@ -41,18 +41,16 @@ const WeatherData = ({ }: Props) => {
 					{/* Carousel of forecast list */}
 					<div class="flex flex-col items-center justify-center mt-4">
 						<h1 class="text-2xl font-bold">Forecast</h1>
-						<div class="flex flex-row items-center justify-center mt-4">
-							<div class="flex flex-row items-center justify-center whitespace-nowrap overflow-x-auto space-x-4">
-								{forecastData.list.map((forecast) => (
-									<div class="flex flex-col rounded-lg shadow-lg p-2 items-center inline-block bg-gray-100 justify-center">
-										<h1 class="text-xl font-bold">{forecast.main.temp}°C</h1>
-										<p class="text-lg">{forecast.weather[0].description}</p>
-										<p class="text-lg">{new Date(forecast.dt * 1000).toLocaleTimeString()}</p>
-										{/* week day */}
-										<p class="text-lg">{new Date(forecast.dt * 1000).toLocaleDateString()}</p>
-									</div>
-								))}
-							</div>
+						<div class="mt-4 w-full whitespace-nowrap overflow-x-auto space-x-4">
+							{forecastData.list.map((forecast) => (
+								<div class="inline-block rounded-lg shadow-lg p-2 items-center bg-gray-100 justify-center">
+									<h1 class="text-xl font-bold">{forecast.main.temp}°C</h1>
+									<p class="text-lg">{forecast.weather[0].description}</p>
+									<p class="text-lg">{new Date(forecast.dt * 1000).toLocaleTimeString()}</p>
+									{/* week day */}
+									<p class="text-lg">{new Date(forecast.dt * 1000).toLocaleDateString()}</p>
+								</div>
+							))}
 						</div>
 					</div>
 

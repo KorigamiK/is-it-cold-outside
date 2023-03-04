@@ -14,7 +14,7 @@ const Search = (_props: {}) => {
 	return (
 		<div>
 			{/* Search Bar */}
-			<div className="relative w-1/2 mx-auto rounded-lg shadow-md">
+			<div className="relative w-4/5 mx-auto rounded-lg shadow-md">
 				<div class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
 					<FiSearch color="grey" size={"18"} />
 				</div>
